@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const dbConfig = {
   host: "localhost",
@@ -201,3 +201,4 @@ app.patch("/ordenes/:id/estado", async (req, res) => {
 app.listen(PORT, () => {
   console.log("API corriendo en puerto", PORT);
 });
+
