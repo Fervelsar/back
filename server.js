@@ -9,10 +9,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
 const dbConfig = {
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "fractal_test",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 };
 
 async function getConn() {
@@ -201,4 +202,5 @@ app.patch("/ordenes/:id/estado", async (req, res) => {
 app.listen(PORT, () => {
   console.log("API corriendo en puerto", PORT);
 });
+
 
